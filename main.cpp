@@ -71,8 +71,8 @@ bool confirm_valid_state() {
 }
 
 CURLcode get_paper_for(const string url) {
-  RecivedFile file{localize_path(DEFAULT_IMAGE_FOLDER) + filename_from(url),
-                   NULL};
+  RecivedFile file{
+      localize_path(DEFAULT_IMAGE_FOLDER) + "/" + filename_from(url), NULL};
   CURLcode res;
   CURL *url_real = setup(url, &file);
   res = curl_easy_perform(url_real);
